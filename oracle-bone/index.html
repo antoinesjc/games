@@ -18,48 +18,68 @@
 html{font-size:min(1.12vw, 2vh)}
 @media (max-width: 800px){ html{font-size:15px} }
 body{margin:0;background:var(--cream);color:var(--ink);font-family:Nunito,system-ui,sans-serif;min-height:100vh}
-button{font:inherit;cursor:pointer}
+button,input{font:inherit}
+button{cursor:pointer}
 .kai{font-family:"LXGW WenKai TC","Kaiti TC","STKaiti",serif;font-weight:700}
-.mont{font-family:Montserrat,system-ui,sans-serif}
 .kicker{font-family:Montserrat,sans-serif;font-weight:800;font-size:.8rem;letter-spacing:.16em;color:var(--or-d);text-transform:uppercase}
 h1,h2{font-family:Montserrat,sans-serif;font-weight:900;color:var(--gd);margin:0;line-height:1.08}
 h1 em,h2 em{font-style:normal;color:#d9661f}
 .screen{display:none;min-height:100vh;padding:1.6rem 2.2rem}
 .screen.on{display:flex}
+.hidden{display:none !important}
 
-/* buttons */
 .btn{border:none;border-radius:1rem;min-height:3rem;padding:0 1.4rem;font-weight:800;font-size:1.05rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem}
 .btn-dark{background:var(--gd);color:#fff}
 .btn-or{background:var(--or);color:var(--ink);font-family:Montserrat,sans-serif;font-weight:900}
 .btn-white{background:#fff;color:var(--gd)}
 .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.45)}
 .btn-line{background:#fff;color:var(--gd);border:2px solid var(--line)}
-.btn:focus-visible,.opt:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+.btn:disabled{opacity:.4;cursor:default}
+.btn:focus-visible,input:focus-visible,.chap:focus-visible{outline:3px solid var(--or);outline-offset:2px}
 
 /* title */
 #title{align-items:center;justify-content:center}
-.title-wrap{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center;max-width:76rem;width:100%}
-.title-wrap h1{font-size:3.6rem}
-.title-wrap p{font-size:1.25rem;line-height:1.5;color:var(--mut);margin:1rem 0 1.6rem}
-.photo{border-radius:1.6rem;overflow:hidden;background:#2a2016;box-shadow:0 1rem 2.4rem rgba(29,94,43,.18);position:relative}
-.photo img{display:block;width:100%;height:34rem;object-fit:cover}
-.photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:.8rem 1rem;background:linear-gradient(transparent,rgba(0,0,0,.75));color:#fff;font-size:.85rem}
+.title-wrap{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:3rem;align-items:start;max-width:84rem;width:100%}
+.title-wrap h1{font-size:3.4rem}
+.title-wrap > div > p{font-size:1.2rem;line-height:1.5;color:var(--mut);margin:1rem 0 1.4rem}
+.panel{background:#fff;border-radius:1.4rem;padding:1.2rem 1.3rem;box-shadow:0 .8rem 2rem rgba(29,94,43,.1);display:flex;flex-direction:column;gap:.8rem}
+.panel h3{margin:0;font-family:Montserrat,sans-serif;font-weight:900;font-size:1.15rem;color:var(--gd)}
+.addrow{display:flex;gap:.6rem}
+.addrow input{flex:1;min-width:0;border:2px solid var(--line);border-radius:.9rem;min-height:3rem;padding:0 1rem;font-size:1.1rem;font-weight:700}
+.plist{display:flex;flex-wrap:wrap;gap:.5rem;max-height:13rem;overflow:auto}
+.pchip{display:inline-flex;align-items:center;gap:.4rem;background:var(--gll);border-radius:999px;padding:.25rem .3rem .25rem .9rem;font-weight:800}
+.pchip .s{font-family:Montserrat,sans-serif;color:var(--gd);font-size:.85rem}
+.pchip button{border:none;background:#fff;border-radius:50%;width:2.2rem;height:2.2rem;color:var(--mut);font-weight:900}
+.small{font-size:.9rem;color:var(--mut)}
 .chapters{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
-.chap{background:#fff;border:2px solid var(--line);border-radius:1.2rem;padding:1.1rem 1.2rem;text-align:left;display:flex;flex-direction:column;gap:.35rem;box-shadow:0 .6rem 1.4rem rgba(29,94,43,.08)}
+.chap{background:#fff;border:2px solid var(--line);border-radius:1.2rem;padding:1.1rem 1.2rem;text-align:left;display:flex;gap:1rem;align-items:center;box-shadow:0 .6rem 1.4rem rgba(29,94,43,.08);color:var(--ink)}
 .chap:hover{border-color:var(--green)}
-.chap .n{font-family:Montserrat,sans-serif;font-weight:900;color:#d9661f;font-size:.85rem;letter-spacing:.12em}
-.chap .t{font-weight:800;font-size:1.25rem;color:var(--gd)}
-.chap .c{font-size:1.5rem;letter-spacing:.2em}
-.chap .s{font-size:.95rem;color:var(--mut)}
-.setup{display:flex;gap:1.2rem;align-items:center;margin-top:1.4rem;flex-wrap:wrap;font-weight:700}
-.seg{display:inline-flex;background:var(--gll);border-radius:999px;padding:.25rem}
-.seg button{border:none;background:transparent;border-radius:999px;min-height:2.6rem;min-width:2.8rem;font-weight:800;color:var(--gd)}
-.seg button.on{background:var(--gd);color:#fff}
+.chap .num{flex:none;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--gd);color:#fff;font-family:Montserrat,sans-serif;font-weight:900;font-size:1.3rem;display:flex;align-items:center;justify-content:center}
+.chap.intro .num{background:var(--or);color:var(--ink)}
+.chap .t{font-weight:800;font-size:1.2rem;color:var(--gd);display:block}
+.chap .s{font-size:.95rem;color:var(--mut);display:block;margin-top:.15rem}
+
+/* slides */
+#slides{flex-direction:column;background:var(--gd);color:#fff}
+.slide{flex:1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:3rem;align-items:center;max-width:80rem;width:100%;margin:0 auto}
+.slide.noimg{grid-template-columns:minmax(0,1fr);max-width:62rem}
+.slide .kicker{color:var(--or-light)}
+.slide h2{color:#fff;font-size:3.4rem;margin:.5rem 0 1.4rem}
+.slide .body{font-size:1.75rem;line-height:1.5}
+.slide .body p{margin:0 0 1rem}
+.slide .body b{color:var(--or-light)}
+.steps{margin:0;padding-left:2.2rem}
+.steps li{margin-bottom:.6rem;padding-left:.4rem}
+.slide img{width:100%;max-height:72vh;object-fit:contain;border-radius:1.4rem;background:#2a2016}
+.snav{display:flex;justify-content:space-between;align-items:center;max-width:80rem;width:100%;margin:0 auto}
+.snav .dots{display:flex;gap:.4rem}
+.snav .dots span{width:1.8rem;height:.45rem;border-radius:.3rem;background:rgba(255,255,255,.3)}
+.snav .dots span.on{background:var(--or-light)}
 
 /* story */
 #story{flex-direction:column;align-items:center;justify-content:center;background:var(--gd);color:#fff}
 .story-card{max-width:62rem;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2.4rem;align-items:center}
-.story-card .photo img{height:30rem}
+.story-card img{width:100%;height:30rem;object-fit:cover;border-radius:1.4rem;display:block}
 .story-card h2{color:#fff;font-size:2.8rem;margin:.4rem 0 1rem}
 .story-card .kicker{color:var(--or-light)}
 .story-card p{font-size:1.4rem;line-height:1.55;margin:0 0 1rem}
@@ -67,7 +87,7 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
 .curator b{color:var(--or-light)}
 
 /* game */
-#game{flex-direction:column;gap:1.1rem;height:100vh}
+#game{flex-direction:column;gap:1rem;height:100vh}
 .top{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .top h2{font-size:1.7rem}
 .top-right{display:flex;gap:1rem;align-items:center}
@@ -76,53 +96,53 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
 .progress span.done{background:var(--green)}
 .progress span.cur{background:var(--or)}
 .timer{display:flex;align-items:center;gap:.5rem;background:#fff;border-radius:999px;padding:.35rem .35rem .35rem 1.1rem;box-shadow:0 .5rem 1.2rem rgba(29,94,43,.12)}
-.timer .tt{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.7rem;min-width:4.2rem}
+.timer .tt{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.7rem;min-width:4.6rem}
 .timer.low .tt{color:var(--bad)}
 .timer .btn{min-height:2.7rem;padding:0 1rem;font-size:.95rem}
-.main{flex:1;display:grid;grid-template-columns:minmax(0,34fr) minmax(0,46fr) minmax(0,20fr);gap:1.6rem;min-height:0}
+.main{flex:1;display:grid;grid-template-columns:minmax(0,36fr) minmax(0,44fr) minmax(0,20fr);gap:1.6rem;min-height:0}
 .bonecol{display:flex;flex-direction:column;gap:1rem;min-height:0}
 .bone{position:relative;flex:1;min-height:14rem;background:var(--bone);border-radius:46% 54% 42% 58% / 52% 44% 56% 48%;box-shadow:inset 0 -1rem 2rem rgba(107,74,43,.2),0 1.2rem 2.4rem rgba(29,94,43,.14);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.bone::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 20% 30%,rgba(140,105,60,.12) 0 2%,transparent 3%),
-  radial-gradient(circle at 75% 70%,rgba(140,105,60,.12) 0 2.5%,transparent 3.5%),
-  radial-gradient(circle at 60% 18%,rgba(140,105,60,.10) 0 1.5%,transparent 2.5%)}
-.bone .crack{position:absolute;right:12%;top:14%;width:12%;opacity:.5}
-.glyph{width:62%;max-height:80%;transition:transform .6s ease;filter:drop-shadow(0 1px 0 rgba(255,255,255,.5))}
+.bone::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 30%,rgba(140,105,60,.12) 0 2%,transparent 3%),radial-gradient(circle at 75% 70%,rgba(140,105,60,.12) 0 2.5%,transparent 3.5%),radial-gradient(circle at 60% 18%,rgba(140,105,60,.10) 0 1.5%,transparent 2.5%)}
+.glyph{width:58%;max-height:84%;transition:transform .6s ease}
 .glyph.rot{transform:rotate(90deg)}
 .glyph img,.glyph svg{display:block;width:100%;height:auto}
-.glyph img,.finbone img{opacity:.82}
+.glyph img,.finbone img{opacity:.85}
 .narr{background:var(--gl);border-radius:1.1rem;padding:.9rem 1.1rem;font-size:1.2rem;line-height:1.45}
 .narr b{color:var(--gd)}
-.qcol{display:flex;flex-direction:column;gap:.8rem;min-height:0}
-.qtitle{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.35rem;color:var(--gd);display:flex;align-items:center;gap:.6rem}
-.qtitle .step{background:var(--gd);color:#fff;border-radius:999px;width:2rem;height:2rem;display:inline-flex;align-items:center;justify-content:center;font-size:1rem}
-.mgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.8rem}
-.cgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem}
-.opt{border:2px solid var(--line);background:#fff;border-radius:1.1rem;color:var(--ink);text-align:left;display:flex;align-items:center;gap:.9rem;padding:0 1.1rem;min-height:4rem;font-weight:800;font-size:1.4rem;box-shadow:0 .4rem 1rem rgba(29,94,43,.06);transition:background .2s,border-color .2s,opacity .2s}
-.opt .L{font-family:Montserrat,sans-serif;font-weight:900;color:#d9661f;font-size:1rem}
-.opt:hover{border-color:var(--green)}
-.cgrid .opt{flex-direction:column;justify-content:center;gap:0;min-height:6.6rem;padding:.4rem}
-.cgrid .opt .ch{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:3.6rem;line-height:1.15}
-.opt.right{background:var(--green);border-color:var(--green);color:#fff}
-.opt.right .L{color:#fff}
-.opt.wrong{background:var(--bad-bg);border-color:#e8b4ae;color:var(--bad);text-decoration:line-through;animation:shake .35s}
-.opt.dim{opacity:.35}
+.qcol{display:flex;flex-direction:column;gap:.7rem;min-height:0;overflow:auto;padding:.2rem}
+.qtitle{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.3rem;color:var(--gd);display:flex;align-items:center;gap:.6rem}
+.qtitle .step{background:var(--gd);color:#fff;border-radius:999px;width:2rem;height:2rem;display:inline-flex;align-items:center;justify-content:center;font-size:1rem;flex:none}
+.ans{display:flex;gap:.6rem}
+.ans input{flex:1;min-width:0;border:3px solid var(--line);border-radius:1rem;min-height:4rem;padding:0 1.1rem;font-size:1.6rem;font-weight:800;background:#fff;color:var(--ink)}
+.ans input.zh{font-family:"LXGW WenKai TC",serif;font-size:2.4rem;text-align:center;max-width:12rem}
+.ans input.wrong{border-color:#e8b4ae;background:var(--bad-bg);animation:shake .35s}
+.ans .btn{min-height:4rem}
+.solved{display:flex;align-items:center;gap:1rem;background:var(--green);color:#fff;border-radius:1rem;min-height:4rem;padding:0 1.2rem;font-weight:800;font-size:1.6rem}
+.solved .zh{font-family:"LXGW WenKai TC",serif;font-size:2.6rem;line-height:1}
+.solved .sm{font-size:1rem;opacity:.85;font-weight:700;margin-left:auto}
+.tried{font-size:1rem;color:var(--mut);min-height:1.2rem}
+.tried s{color:var(--bad)}
+.award{display:flex;flex-wrap:wrap;gap:.45rem;align-items:center;background:var(--peach);border-radius:1rem;padding:.6rem .7rem}
+.award .lab{font-weight:800;margin-right:.3rem}
+.award button{border:none;border-radius:999px;background:#fff;min-height:2.6rem;padding:0 .9rem;font-weight:800;color:var(--gd)}
+.award button:hover{background:var(--gd);color:#fff}
+.award button.none{background:transparent;color:var(--mut);text-decoration:underline}
+.locked{opacity:.35;pointer-events:none}
 @keyframes shake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
-.locked{opacity:.4;pointer-events:none}
 .box{border-radius:1.1rem;padding:.9rem 1.1rem;font-size:1.2rem;line-height:1.45}
 .clue{background:var(--peach)}
 .fact{background:var(--gd);color:#fff;display:flex;gap:1.2rem;align-items:center}
 .fact .big{font-family:"LXGW WenKai TC",serif;font-weight:700;font-size:4.2rem;line-height:1}
 .fact .py{font-weight:800;font-size:1.3rem;color:var(--or-light)}
-.teams{display:flex;flex-direction:column;gap:.7rem}
-.team{background:#fff;border-radius:1.1rem;padding:.7rem .8rem;display:flex;align-items:center;gap:.6rem;box-shadow:0 .5rem 1.2rem rgba(29,94,43,.1)}
-.team .dot{width:.9rem;height:.9rem;border-radius:50%;flex:none}
-.team .nm{font-weight:800;font-size:1rem;line-height:1.2}
-.team .sc{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.6rem;color:var(--gd)}
-.team .btn{min-height:2.75rem;min-width:2.75rem;padding:0 .6rem;border-radius:.8rem}
-.team .plus{background:var(--or);color:var(--ink);font-weight:900}
-.team .minus{background:#fff;border:2px solid var(--line);color:var(--mut);font-weight:900}
-.rules{font-size:.9rem;color:var(--mut);line-height:1.45;margin-top:auto}
+.board{display:flex;flex-direction:column;gap:.45rem;min-height:0;overflow:auto}
+.board h3{margin:0 0 .2rem;font-family:Montserrat,sans-serif;font-weight:900;font-size:1.2rem;color:var(--gd)}
+.prow{background:#fff;border-radius:.9rem;padding:.35rem .4rem .35rem .8rem;display:flex;align-items:center;gap:.4rem;box-shadow:0 .3rem .8rem rgba(29,94,43,.08)}
+.prow .nm{flex:1;min-width:0;font-weight:800;font-size:1.05rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prow .sc{font-family:Montserrat,sans-serif;font-weight:900;font-size:1.25rem;color:var(--gd);min-width:2.4rem;text-align:right}
+.prow.lead{outline:3px solid var(--or)}
+.prow button{border:none;border-radius:.6rem;min-width:2.4rem;height:2.4rem;font-weight:900}
+.prow .minus{background:var(--gll);color:var(--mut)}
+.prow .plus{background:var(--or);color:var(--ink);font-size:.85rem}
 .bar{display:flex;gap:.7rem;align-items:center;background:var(--gd);border-radius:1.2rem;padding:.7rem .9rem;flex-wrap:wrap}
 .bar .lab{font-family:Montserrat,sans-serif;font-weight:800;font-size:.75rem;letter-spacing:.14em;color:var(--or-light);margin-right:.3rem}
 .bar .sp{flex:1}
@@ -130,29 +150,32 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
 
 /* finale */
 #finale{align-items:center;justify-content:center;background:var(--gd);color:#fff}
-.fin{max-width:70rem;display:grid;grid-template-columns:auto minmax(0,1fr);gap:3rem;align-items:center}
+.fin{max-width:74rem;display:grid;grid-template-columns:auto minmax(0,1fr);gap:3rem;align-items:center}
 .fin .kicker{color:var(--or-light)}
-.fin h2{color:#fff;font-size:2.6rem;margin:.4rem 0 1.2rem}
-.finbone{background:var(--bone);border-radius:48% 52% 40% 60% / 18% 22% 16% 20%;padding:2.2rem 2.4rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;box-shadow:inset 0 -1rem 2rem rgba(107,74,43,.25)}
+.fin h2{color:#fff;font-size:2.1rem;margin:.4rem 0 1rem}
+.finbone{background:var(--bone);border-radius:48% 52% 40% 60% / 18% 22% 16% 20%;padding:2rem 2.4rem;display:flex;flex-direction:column;align-items:center;gap:.4rem;box-shadow:inset 0 -1rem 2rem rgba(107,74,43,.25)}
 .finbone.row{flex-direction:row;border-radius:40% 60% 46% 54% / 50% 46% 54% 50%;padding:2.4rem 3rem}
-.finbone .gl{width:13rem}
+.finbone .gl{width:12rem}
+.finbone:not(.row) .gl{width:9rem}
 .finbone .gl img,.finbone .gl svg{width:100%;display:block}
 .finbone .op{font-family:Montserrat,sans-serif;font-weight:900;font-size:3rem;color:var(--carve)}
-.reveal-line{font-size:4.6rem;line-height:1.1}
+.fin .ans input{background:#fff}
+#finReal{flex:none}
+#finReal img,#finReal svg{width:100%;height:auto;display:block}
+.fin{max-height:100vh}
+.reveal-line{font-size:3.8rem;line-height:1.1}
 .fin .py{font-size:1.6rem;font-weight:800;color:var(--or-light);margin:.4rem 0}
 .fin .en{font-size:1.5rem;margin-bottom:1rem}
 .fin p{font-size:1.3rem;line-height:1.55;margin:0 0 1rem;color:#e4f1e1}
-.hidden{display:none !important}
 
 /* end */
-#end{flex-direction:column;align-items:center;justify-content:center;gap:2rem}
+#end{flex-direction:column;align-items:center;justify-content:center;gap:1.6rem}
 #end h2{font-size:3rem;text-align:center}
-.podium{display:flex;gap:1.2rem;flex-wrap:wrap;justify-content:center}
-.podium .team{min-width:15rem;flex-direction:column;align-items:flex-start;padding:1.2rem 1.4rem}
-.podium .team.win{outline:4px solid var(--or)}
+.rank{display:flex;flex-direction:column;gap:.5rem;width:min(36rem,100%)}
+.rank .prow{padding:.7rem 1rem}
+.rank .pos{font-family:Montserrat,sans-serif;font-weight:900;color:#d9661f;width:2rem}
 .credits{font-size:.8rem;color:var(--mut);max-width:60rem;text-align:center;line-height:1.5}
 .credits a{color:var(--gd)}
-.fs{position:fixed;right:.8rem;bottom:.8rem;z-index:5}
 </style>
 </head>
 <body>
@@ -163,41 +186,36 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
     <div>
       <div class="kicker">Mandarin Zest · Calligraphy House</div>
       <h1>Oracle Bone<br><em>Mystery</em> <span class="kai">甲骨之謎</span></h1>
-      <p>3,000 years ago, Shang kings asked questions to their ancestors by carving them on bones. Read the oldest Chinese writing and find the characters we still use today.</p>
-      <div class="chapters">
-        <button class="chap" data-ch="0">
-          <span class="n">CHAPTER 1</span>
-          <span class="t">The Dragon Bone Pharmacy</span>
-          <span class="c kai">日 月 山 水 雨 木</span>
-          <span class="s">Nature · Beijing, 1899</span>
-        </button>
-        <button class="chap" data-ch="1">
-          <span class="n">CHAPTER 2</span>
-          <span class="t">The Dig at Anyang</span>
-          <span class="c kai">人 女 子 口 目 耳</span>
-          <span class="s">People and the body · 1928</span>
-        </button>
-      </div>
-      <div class="setup">
-        <span>Teams</span>
-        <span class="seg" id="teamSeg">
-          <button data-n="2">2</button><button data-n="3">3</button><button data-n="4" class="on">4</button>
-        </span>
-        <button class="btn btn-line" id="resetScores">Reset scores</button>
-        <button class="btn btn-dark" id="fsBtn">⛶ Full screen</button>
+      <p>3,000 years ago, Shang kings carved their questions on bones. Read the oldest Chinese writing and find the characters we still use today.</p>
+      <div class="panel">
+        <h3>Players</h3>
+        <form class="addrow" id="addForm"><input id="addName" placeholder="Type a name, press Enter" aria-label="Player name" autocomplete="off"><button class="btn btn-dark" type="submit">Add</button></form>
+        <div class="plist" id="plist"></div>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <button class="btn btn-line" id="resetScores">Reset scores</button>
+          <button class="btn btn-line" id="clearPlayers">Remove everyone</button>
+          <button class="btn btn-dark" id="fsBtn">⛶ Full screen</button>
+        </div>
       </div>
     </div>
-    <figure class="photo" style="margin:0">
-      <img id="titlePhoto" src="img/scapula.jpg" alt="A real Shang dynasty ox shoulder blade covered in carved oracle bone writing">
-      <figcaption>A real oracle bone: an ox shoulder blade carved about 3,000 years ago.</figcaption>
-    </figure>
+    <div class="chapters" id="chapters"></div>
+  </div>
+</section>
+
+<!-- CHAPTER 0 SLIDES -->
+<section class="screen" id="slides" aria-label="What are oracle bones?">
+  <div class="slide" id="slide"></div>
+  <div class="snav">
+    <button class="btn btn-ghost" id="sPrev">← Back</button>
+    <div class="dots" id="sDots"></div>
+    <button class="btn btn-or" id="sNext">Next →</button>
   </div>
 </section>
 
 <!-- STORY -->
 <section class="screen" id="story" aria-label="Story">
   <div class="story-card">
-    <figure class="photo" style="margin:0"><img id="storyPhoto" src="img/plastron.jpg" alt="A real Shang dynasty turtle shell carved with oracle bone writing"></figure>
+    <img id="storyPhoto" src="img/plastron.jpg" alt="A real Shang dynasty oracle bone carved with writing">
     <div>
       <div class="kicker" id="storyKicker"></div>
       <h2 id="storyTitle"></h2>
@@ -218,35 +236,42 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
     </div>
     <div class="top-right">
       <div class="progress" id="progress"></div>
-      <div class="mont" style="font-weight:800;font-size:1.2rem;color:var(--gd)" id="boneNo"></div>
-      <div class="timer" id="timer"><span class="tt" id="tt">0:30</span><button class="btn btn-dark" id="tStart">Start</button><button class="btn btn-line" id="tReset">Reset</button></div>
+      <div style="font-family:Montserrat,sans-serif;font-weight:800;font-size:1.2rem;color:var(--gd)" id="boneNo"></div>
+      <div class="timer" id="timer"><span class="tt" id="tt">1:00</span><button class="btn btn-dark" id="tStart">Start</button><button class="btn btn-line" id="tReset">Reset</button></div>
     </div>
   </div>
   <div class="main">
     <div class="bonecol">
-      <div class="bone">
-        <svg class="crack" viewBox="0 0 40 80" aria-hidden="true"><path d="M14 4 L14 76 M14 30 L36 16" fill="none" stroke="#8c6a3c" stroke-width="3" stroke-linecap="round"/></svg>
-        <div class="glyph" id="glyph"></div>
-      </div>
+      <div class="bone"><div class="glyph" id="glyph"></div></div>
       <div class="narr"><b>館長 The Curator:</b> <span id="narr"></span></div>
     </div>
     <div class="qcol">
-      <div class="qtitle"><span class="step">1</span>What does it show?</div>
-      <div class="mgrid" id="mgrid"></div>
-      <div class="qtitle" style="margin-top:.4rem"><span class="step">2</span>Which modern character?</div>
-      <div class="cgrid" id="cgrid"></div>
+      <div class="qtitle"><span class="step">1</span>What does it show? <span class="small" style="font-family:Nunito">(in English)</span></div>
+      <form class="ans" id="mForm"><input id="mIn" placeholder="Type a guess…" autocomplete="off" aria-label="What does it show?"><button class="btn btn-dark" type="submit">Check</button></form>
+      <div class="solved hidden" id="mSolved"></div>
+      <div class="tried" id="mTried"></div>
+      <div class="award hidden" id="mAward"></div>
+
+      <div id="cWrap">
+        <div class="qtitle"><span class="step">2</span>Which modern character?</div>
+        <form class="ans" id="cForm" style="margin-top:.7rem"><input id="cIn" class="zh" placeholder="汉字" autocomplete="off" aria-label="Type the modern character"><button class="btn btn-dark" type="submit">Check</button></form>
+        <div class="solved hidden" id="cSolved" style="margin-top:.7rem"></div>
+        <div class="tried" id="cTried" style="margin-top:.5rem"></div>
+      </div>
+      <div class="award hidden" id="cAward"></div>
       <div class="box clue hidden" id="clueBox"></div>
       <div class="box fact hidden" id="factBox"><div class="big" id="fChar"></div><div><div class="py" id="fPy"></div><div id="fText"></div></div></div>
     </div>
-    <div class="teams" id="teams"></div>
+    <div class="board" id="board"></div>
   </div>
   <div class="bar">
     <span class="lab">TEACHER</span>
     <button class="btn btn-ghost" id="bClue">Clue<kbd>H</kbd></button>
     <button class="btn btn-white" id="bMeaning">Reveal meaning<kbd>M</kbd></button>
     <button class="btn btn-white" id="bChar">Reveal character<kbd>C</kbd></button>
-    <button class="btn btn-white" id="bFact">Story &amp; fact<kbd>F</kbd></button>
+    <button class="btn btn-white" id="bFact">Fun fact<kbd>F</kbd></button>
     <span class="sp"></span>
+    <button class="btn btn-ghost" id="bHome">Chapters</button>
     <button class="btn btn-ghost" id="bPrev">← Back</button>
     <button class="btn btn-or" id="bNext">Next bone →</button>
   </div>
@@ -259,9 +284,11 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
     <div>
       <div class="kicker" id="finKicker"></div>
       <h2 id="finTitle"></h2>
-      <button class="btn btn-or" id="finReveal">Reveal the answer</button>
+      <form class="ans" id="finForm" style="margin-bottom:1rem"><input id="finIn" class="zh" placeholder="汉字" autocomplete="off" aria-label="Type the character"><button class="btn btn-or" type="submit">Check</button></form>
+      <div class="award hidden" id="finAward" style="margin-bottom:1rem;color:var(--ink)"></div>
+      <button class="btn btn-ghost" id="finReveal">Reveal the answer</button>
       <div id="finAnswer" class="hidden">
-        <div class="kai reveal-line" id="finChars"></div>
+        <div style="display:flex;align-items:center;gap:1.4rem"><div class="kai reveal-line" id="finChars"></div><div id="finReal" style="width:7rem;background:var(--bone);border-radius:1rem;padding:.6rem" title="The real oracle bone glyph"></div></div>
         <div class="py" id="finPy"></div>
         <div class="en" id="finEn"></div>
         <p id="finText"></p>
@@ -273,183 +300,146 @@ h1 em,h2 em{font-style:normal;color:#d9661f}
 
 <!-- END -->
 <section class="screen" id="end" aria-label="Scores">
-  <div class="kicker">Chapter complete</div>
+  <div class="kicker" id="endKicker">Chapter complete</div>
   <h2 id="endTitle"></h2>
-  <div class="podium" id="podium"></div>
-  <div style="display:flex;gap:1rem"><button class="btn btn-dark" id="endHome">← Chapters</button></div>
+  <div class="rank" id="rank"></div>
+  <div style="display:flex;gap:1rem"><button class="btn btn-line" id="endHome">← Chapters</button><button class="btn btn-dark" id="endNext">Next chapter →</button></div>
   <div class="credits" id="credits"></div>
 </section>
 
-
+<script src="chapters.js"></script>
 <script>
-// Simple sketch fallbacks, used only if an image file is missing.
+// Sketch fallbacks, only used if an image file is missing.
 var SK = {
   '日':'<path d="M50 14C76 14 84 32 84 50C84 70 74 86 50 86C26 86 16 70 16 50C16 30 26 14 50 14Z"/><path d="M42 50L58 50"/>',
-  '月':'<path d="M60 10C24 22 22 74 50 92"/><path d="M60 10C74 34 70 74 50 92"/><path d="M48 44L58 56"/>',
-  '山':'<path d="M8 82L92 82"/><path d="M8 82L22 50L36 72L50 16L64 72L78 50L92 82"/>',
-  '水':'<path d="M50 8Q36 30 50 50Q64 70 50 92"/><path d="M26 22L32 32M22 48L30 54M26 72L32 80M74 22L68 32M78 48L70 54M74 72L68 80"/>',
-  '雨':'<path d="M10 14L90 14"/><path d="M30 28L30 40M50 28L50 40M70 28L70 40"/><path d="M30 54L30 66M50 54L50 66M70 54L70 66"/><path d="M40 78L40 90M60 78L60 90"/>',
-  '木':'<path d="M50 8L50 92"/><path d="M50 32L28 12M50 32L72 12"/><path d="M50 68L28 90M50 68L72 90"/>',
-  '今':'<path d="M14 54L50 16L86 54"/><path d="M38 74L62 74"/>',
+  '月':'<path d="M60 10C24 22 22 74 50 92"/><path d="M60 10C74 34 70 74 50 92"/>',
   '人':'<path d="M60 10Q52 50 36 90"/><path d="M56 36L76 60"/>',
-  '女':'<path d="M30 20Q60 40 40 62Q30 76 62 88"/><path d="M60 20Q40 44 70 64"/><path d="M20 52L80 46"/>',
-  '子':'<circle cx="50" cy="24" r="14"/><path d="M50 38L50 92"/><path d="M22 46Q36 58 50 52Q64 58 78 46"/>',
-  '口':'<path d="M20 30L28 78L72 78L80 30"/><path d="M20 30Q50 40 80 30"/>',
-  '目':'<path d="M8 50Q50 14 92 50Q50 86 8 50Z"/><circle cx="50" cy="50" r="13"/>',
-  '耳':'<path d="M36 12L36 88"/><path d="M36 14Q74 24 66 52Q60 74 36 76"/><path d="M36 38Q54 42 50 56"/>',
-  '好':'<path d="M18 22Q40 38 26 58Q18 72 42 84"/><path d="M40 22Q24 42 46 62"/><circle cx="72" cy="26" r="10"/><path d="M72 36L72 88M56 50Q66 58 72 54Q78 58 88 50"/>'
+  '木':'<path d="M50 8L50 92"/><path d="M50 32L28 12M50 32L72 12"/><path d="M50 68L28 90M50 68L72 90"/>'
 };
-function glyphHTML(ch){
-  var fb = SK[ch] ? '<svg viewBox="0 0 100 100" role="img" aria-label="Oracle bone glyph"><g fill="none" stroke="#5a3b1e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">'+SK[ch]+'</g></svg>' : '';
+var POINTS = 10, TIME = 60;
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+function putGlyph(el, ch){
+  el.innerHTML = '';
   var img = document.createElement('img');
   img.alt = 'Oracle bone glyph';
   img.src = 'img/glyphs/' + encodeURIComponent(ch) + '.svg';
-  img.dataset.fb = fb;
-  return img;
-}
-function putGlyph(el, ch){
-  el.innerHTML = '';
-  var img = glyphHTML(ch);
-  img.onerror = function(){ el.innerHTML = img.dataset.fb; };
+  img.onerror = function(){ el.innerHTML = SK[ch] ? '<svg viewBox="0 0 100 100" role="img" aria-label="Oracle bone glyph"><g fill="none" stroke="#5a3b1e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">'+SK[ch]+'</g></svg>' : '<div class="kai" style="font-size:6rem;color:#5a3b1e;text-align:center">?</div>'; };
   el.appendChild(img);
 }
-
-var CHAPTERS = [
- { title:'Chapter 1 · The Dragon Bone Pharmacy', kicker:'Chapter 1 · Beijing, 1899',
-   story:['The legend goes like this: a scholar named Wang Yirong falls ill. The pharmacy sells him <b>"dragon bones"</b>, to be ground into medicine.',
-          'But Wang notices tiny carved scratches on the bones. They look like… <b>writing</b>.'],
-   curator:'These bones are over 3,000 years old! Help me read them before they end up in someone’s soup.',
-   bones:[
-    { ch:'日', py:'rì', en:'sun', m:['the sun','an eye','a mouth','a field'], ma:0, c:['目','田','日','口'], ca:2,
-      narr:'The first bone from the medicine bag. A box with a short mark in the middle.',
-      clue:'It rises every morning.',
-      fact:'The mark inside shows the sun is solid, not an empty ring. Curves are hard to carve into bone, so carvers often made the sun square, like here.' },
-    { ch:'月', py:'yuè', en:'moon', m:['a boat','the moon','meat','a leaf'], ma:1, c:['月','肉','用','丹'], ca:0,
-      narr:'A curved shape, thin like a fingernail.',
-      clue:'You see it at night, and it is rarely full.',
-      fact:'Drawn as a crescent, because the round shape was already taken by 日. Fun twist: the 月 in 脸 and 腿 actually comes from 肉 "meat".' },
-    { ch:'山', py:'shān', en:'mountain', m:['fire','a crown','a mountain','waves'], ma:2, c:['火','山','出','凶'], ca:1,
-      narr:'A heavy piece of ox bone, with sharp points rising from a line.',
-      clue:'Look at the line at the bottom. It stands firmly on the ground.',
-      fact:'In oracle script 山 and 火 are near twins: peaks for a mountain, flickering tongues for fire. Readers often had to tell them apart from context.' },
-    { ch:'水', py:'shuǐ', en:'water', m:['lightning','a snake','water','a tree'], ma:2, c:['永','木','小','水'], ca:3,
-      narr:'A wavy line runs down the middle, with little marks splashing on both sides.',
-      clue:'It flows. The little marks are splashes.',
-      fact:'A flowing stream with drops on both sides. On the left of a character it shrinks to 氵: 河 river, 海 sea, 洗 to wash.' },
-    { ch:'雨', py:'yǔ', en:'rain', m:['a net','rain','a river','the sky'], ma:1, c:['两','西','雨','而'], ca:2,
-      narr:'Little marks drip down from a long line at the top.',
-      clue:'Something is falling from the line at the top.',
-      fact:'A line for the sky, with drops falling from it. Shang kings asked the bones about rain again and again: their harvests depended on it.' },
-    { ch:'木', py:'mù', en:'tree', m:['a person','a crossroads','a tree','water'], ma:2, c:['本','木','禾','米'], ca:1,
-      narr:'The last bone in the bag. One tall line, with arms reaching up and down.',
-      clue:'Branches above, roots below.',
-      fact:'Add a mark at the roots and you get 本 "root, origin". Two trees make 林 "woods", three make 森 "forest".' }
-   ],
-   finale:{ glyphs:['今','日','雨'], row:false, kicker:'Chapter 1 · The king’s question', title:'Read the full bone. The Curator gives you the first glyph: 今 jīn, "now, today".',
-     chars:'今日雨？', py:'jīn rì yǔ?', en:'"Will it rain today?"',
-     text:'You just read a real kind of Shang question. The king’s diviner heated the bone until it cracked, then read the answer in the crack. That crack shape became the character 卜 bǔ, "to divine".' }
- },
- { title:'Chapter 2 · The Dig at Anyang', kicker:'Chapter 2 · Anyang, 1928',
-   story:['Scholars traced the dragon bones back to one place: Anyang, the last capital of the Shang kings.',
-          'In 1928 archaeologists start digging there. Thousands of bones and shells come out of the ground, covered in people, hands, eyes and ears.'],
-   curator:'This time the bones are full of people. Let’s meet them!',
-   bones:[
-    { ch:'人', py:'rén', en:'person', m:['a person','a tree','a river','a bird'], ma:0, c:['入','八','人','大'], ca:2,
-      narr:'A figure seen from the side, bending forward a little.',
-      clue:'Someone walking past you, seen from the side.',
-      fact:'A person seen from the side. Compare 大 "big": a person facing you with arms and legs spread wide.' },
-    { ch:'女', py:'nǚ', en:'woman', m:['a running man','a kneeling woman','a cooking pot','a tree'], ma:1, c:['女','安','母','好'], ca:0,
-      narr:'Someone is kneeling, with arms crossed in front.',
-      clue:'She is kneeling, with her arms crossed in front.',
-      fact:'A kneeling woman with crossed arms. Add two dots and she becomes 母 "mother".' },
-    { ch:'子', py:'zǐ', en:'child', m:['a king','an axe','a baby','a star'], ma:2, c:['了','子','字','学'], ca:1,
-      narr:'A big head, a small body, arms waving in the air.',
-      clue:'Big head, waving arms, legs still wrapped up.',
-      fact:'A baby with a big head and waving arms. Put a child under a roof and you get 字 "character".' },
-    { ch:'口', py:'kǒu', en:'mouth', m:['a cup','the sun','a door','a mouth'], ma:3, c:['日','回','口','田'], ca:2,
-      narr:'A simple open shape, wider at the top.',
-      clue:'It opens to eat and to speak.',
-      fact:'An open mouth. You find it in many characters about eating and speaking: 吃 eat, 叫 call, 唱 sing.' },
-    { ch:'目', py:'mù', en:'eye', m:['the sun','an eye','a fish','a mouth'], ma:1, c:['日','目','自','四'], ca:1, rotate:true,
-      narr:'This carving seems to look right back at you!',
-      clue:'Scribes wrote in vertical columns. Watch it turn 90°…',
-      fact:'Wide pictures like 目 "eye" and 馬 "horse" were turned upright so they fit in vertical columns of writing. That is why the modern eye stands on its side.' },
-    { ch:'耳', py:'ěr', en:'ear', m:['an ear','a shell','a hook','a door'], ma:0, c:['耳','目','取','自'], ca:0,
-      narr:'The last bone of the dig. Two curves, one inside the other.',
-      clue:'You hear with it.',
-      fact:'An ear with its curves. Add a hand 又 grabbing it and you get 取 "to take".' }
-   ],
-   finale:{ glyphs:['女','子'], row:true, kicker:'Chapter 2 · Put two bones together', title:'A woman and a child, side by side. Which character do they make together?',
-     chars:'女 + 子 = 好', py:'hǎo', en:'"good"',
-     text:'A woman with a child: good! One of the first words every learner knows is made of two 3,000-year-old pictures.' }
- }
-];
-
-var TEAMS = [
-  { name:'Team Orange 橙子', color:'#ec7a36' },
-  { name:'Team Lychee 荔枝', color:'#c8372d' },
-  { name:'Team Kiwi 奇异果', color:'#2b8a3e' },
-  { name:'Team Peach 桃子', color:'#f2a7a0' }
-];
-
-var S = { ch:0, i:0, rm:false, rc:false, clue:false, fact:false, wm:[], wc:[], nTeams:4, scores:[0,0,0,0], t:30, run:false };
-try { var saved = JSON.parse(localStorage.getItem('mz-oracle') || 'null'); if (saved) { S.scores = saved.scores || S.scores; S.nTeams = saved.nTeams || 4; } } catch(e) {}
-function save(){ try { localStorage.setItem('mz-oracle', JSON.stringify({ scores:S.scores, nTeams:S.nTeams })); } catch(e) {} }
-
-var $ = function(id){ return document.getElementById(id); };
 function show(id){ document.querySelectorAll('.screen').forEach(function(s){ s.classList.toggle('on', s.id === id); }); window.scrollTo(0,0); }
 
-// title
-document.querySelectorAll('.chap').forEach(function(b){ b.onclick = function(){ openChapter(+b.dataset.ch); }; });
-function drawSeg(){ document.querySelectorAll('#teamSeg button').forEach(function(b){ b.classList.toggle('on', +b.dataset.n === S.nTeams); }); }
-document.querySelectorAll('#teamSeg button').forEach(function(b){ b.onclick = function(){ S.nTeams = +b.dataset.n; save(); drawSeg(); }; });
-$('resetScores').onclick = function(){ S.scores = [0,0,0,0]; save(); $('resetScores').textContent = 'Scores reset ✓'; setTimeout(function(){ $('resetScores').textContent = 'Reset scores'; }, 1500); };
-drawSeg();
-[$('titlePhoto'), $('storyPhoto')].forEach(function(img){ img.onerror = function(){ img.closest('figure').style.display = 'none'; }; });
+// ---------- players ----------
+var P = [];
+try { P = JSON.parse(localStorage.getItem('mz-oracle-players') || '[]'); } catch(e) {}
+function saveP(){ try { localStorage.setItem('mz-oracle-players', JSON.stringify(P)); } catch(e) {} }
+function drawPlist(){
+  $('plist').innerHTML = P.length ? P.map(function(p,k){ return '<span class="pchip">'+esc(p.name)+' <span class="s">'+p.score+'</span><button data-k="'+k+'" aria-label="Remove '+esc(p.name)+'">×</button></span>'; }).join('')
+    : '<span class="small">No players yet. You can also play without names.</span>';
+}
+$('addForm').onsubmit = function(e){ e.preventDefault(); var v = $('addName').value.trim();
+  v.split(/\s*[,;\n]\s*/).forEach(function(n){ if (n && !P.some(function(p){ return p.name.toLowerCase() === n.toLowerCase(); })) P.push({ name:n, score:0 }); });
+  $('addName').value = ''; saveP(); drawPlist(); };
+$('plist').onclick = function(e){ var b = e.target.closest('button'); if (!b) return; P.splice(+b.dataset.k, 1); saveP(); drawPlist(); };
+$('resetScores').onclick = function(){ P.forEach(function(p){ p.score = 0; }); saveP(); drawPlist(); };
+$('clearPlayers').onclick = function(){ if (confirmClear()) { P = []; saveP(); drawPlist(); } };
+function confirmClear(){ var b = $('clearPlayers'); if (b.dataset.sure) { delete b.dataset.sure; b.textContent = 'Remove everyone'; return true; }
+  b.dataset.sure = '1'; b.textContent = 'Click again to confirm'; setTimeout(function(){ delete b.dataset.sure; b.textContent = 'Remove everyone'; }, 3000); return false; }
+function give(k, pts){ if (!P[k]) return; P[k].score = Math.max(0, P[k].score + pts); saveP(); drawBoard(); }
+function awardHTML(){ return P.length ? '<span class="lab">Who got it?</span>' + P.map(function(p,k){ return '<button type="button" data-k="'+k+'">'+esc(p.name)+'</button>'; }).join('') + '<button type="button" class="none" data-k="-1">nobody</button>' : ''; }
+function bindAward(el){ el.innerHTML = awardHTML(); el.classList.toggle('hidden', !P.length);
+  el.onclick = function(e){ var b = e.target.closest('button'); if (!b) return; var k = +b.dataset.k; if (k >= 0) give(k, POINTS); el.classList.add('hidden'); }; }
+function drawBoard(){
+  var max = Math.max.apply(null, P.map(function(p){ return p.score; }).concat([0]));
+  $('board').innerHTML = '<h3>Detectives</h3>' + (P.length ? P.map(function(p,k){
+    return '<div class="prow'+(p.score===max&&max>0?' lead':'')+'"><span class="nm">'+esc(p.name)+'</span><span class="sc">'+p.score+'</span><button class="minus" data-k="'+k+'" data-d="-'+POINTS+'" aria-label="Remove points">−</button><button class="plus" data-k="'+k+'" data-d="'+POINTS+'" aria-label="Add points">+'+POINTS+'</button></div>'; }).join('')
+    : '<div class="small">Add player names on the start screen to keep score.</div>');
+}
+$('board').onclick = function(e){ var b = e.target.closest('button'); if (!b) return; give(+b.dataset.k, +b.dataset.d); };
 
+// ---------- title ----------
+$('chapters').innerHTML = '<button class="chap intro" data-ch="-1"><span class="num">0</span><span><span class="t">What are oracle bones?</span><span class="s">7 slides to start · no points</span></span></button>' +
+  CHAPTERS.map(function(c,k){ return '<button class="chap" data-ch="'+k+'"><span class="num">'+(k+1)+'</span><span><span class="t">'+c.title+'</span><span class="s">'+c.theme+' · '+c.place+' · 6 bones</span></span></button>'; }).join('');
+$('chapters').onclick = function(e){ var b = e.target.closest('.chap'); if (!b) return; var c = +b.dataset.ch; if (c < 0) openSlides(0); else openChapter(c); };
+$('fsBtn').onclick = function(){ if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(function(){}); };
+drawPlist();
+
+// ---------- chapter 0 ----------
+var si = 0;
+function openSlides(i){ si = i; drawSlide(); show('slides'); }
+function drawSlide(){
+  var s = INTRO_SLIDES[si];
+  $('slide').className = 'slide' + (s.img ? '' : ' noimg');
+  $('slide').innerHTML = '<div><div class="kicker">'+s.kicker+'</div><h2>'+s.title+'</h2><div class="body">'+s.body+'</div></div>' + (s.img ? '<img src="'+s.img+'" alt="A real Shang dynasty oracle bone">' : '');
+  $('sDots').innerHTML = INTRO_SLIDES.map(function(_,k){ return '<span class="'+(k===si?'on':'')+'"></span>'; }).join('');
+  $('sPrev').textContent = si === 0 ? '← Chapters' : '← Back';
+  $('sNext').textContent = si === INTRO_SLIDES.length-1 ? 'Start Chapter 1 →' : 'Next →';
+}
+$('sPrev').onclick = function(){ if (si === 0) show('title'); else { si--; drawSlide(); } };
+$('sNext').onclick = function(){ if (si === INTRO_SLIDES.length-1) openChapter(0); else { si++; drawSlide(); } };
+
+// ---------- story ----------
+var S = { ch:0, i:0, m:false, c:false, clue:false, fact:false, mt:[], ct:[], t:TIME, run:false };
 function openChapter(c){
   S.ch = c; var C = CHAPTERS[c];
-  $('storyKicker').textContent = C.kicker; $('storyTitle').textContent = C.title.split(' · ')[1];
+  $('storyKicker').textContent = 'Chapter ' + (c+1) + ' · ' + C.place;
+  $('storyTitle').textContent = C.title;
   $('storyText').innerHTML = C.story.map(function(p){ return '<p>'+p+'</p>'; }).join('');
   $('storyCurator').textContent = C.curator;
+  $('storyPhoto').src = c % 2 ? 'img/scapula.jpg' : 'img/plastron.jpg';
   show('story');
 }
-$('backTitle').onclick = function(){ show('title'); };
+$('storyPhoto').onerror = function(){ this.style.display = 'none'; };
+$('backTitle').onclick = function(){ drawPlist(); show('title'); };
 $('startBones').onclick = function(){ goBone(0); show('game'); };
 
-// game
-function goBone(i){ S.i = i; S.rm = S.rc = S.clue = S.fact = false; S.wm = []; S.wc = []; stopTimer(); S.t = 30; draw(); }
+// ---------- game ----------
 function B(){ return CHAPTERS[S.ch].bones[S.i]; }
+function goBone(i){ S.i = i; S.m = S.c = S.clue = S.fact = false; S.mt = []; S.ct = []; stopTimer(); S.t = TIME;
+  $('mIn').value = ''; $('cIn').value = ''; $('mAward').classList.add('hidden'); $('cAward').classList.add('hidden'); draw(); }
+function norm(s){ return s.toLowerCase().replace(/[^a-z\s]/g, ' ').split(/\s+/).filter(Boolean); }
+function meaningOK(txt, b){
+  return norm(txt).some(function(w){ return [w, w.replace(/es$/, ''), w.replace(/s$/, '')].some(function(v){ return b.ok.indexOf(v) >= 0; }); });
+}
+function charOK(txt, b){ var t = txt.trim(); return !!t && (t.indexOf(b.ch) >= 0 || (b.tr && t.indexOf(b.tr) >= 0)); }
 function draw(){
   var C = CHAPTERS[S.ch], b = B();
-  $('gChapter').textContent = C.title;
+  $('gChapter').textContent = 'Chapter ' + (S.ch+1) + ' · ' + C.title;
   $('boneNo').textContent = 'Bone ' + (S.i+1) + ' / ' + C.bones.length;
-  $('progress').innerHTML = C.bones.map(function(_,k){ return '<span class="'+(k<S.i||(k===S.i&&S.rc)?'done':k===S.i?'cur':'')+'"></span>'; }).join('');
-  var g = $('glyph'); if (g.dataset.ch !== S.ch+'-'+S.i) { putGlyph(g, b.ch); g.dataset.ch = S.ch+'-'+S.i; }
-  g.classList.toggle('rot', !!(b.rotate && (S.clue || S.rc)));
+  $('progress').innerHTML = C.bones.map(function(_,k){ return '<span class="'+(k<S.i||(k===S.i&&S.c)?'done':k===S.i?'cur':'')+'"></span>'; }).join('');
+  var g = $('glyph'); if (g.dataset.key !== S.ch+'-'+S.i) { putGlyph(g, b.tr || b.ch); g.dataset.key = S.ch+'-'+S.i; }
+  g.classList.toggle('rot', !!(b.rotate && (S.clue || S.c)));
   $('narr').textContent = b.narr;
-  $('mgrid').innerHTML = b.m.map(function(t,k){
-    var cl = S.rm ? (k===b.ma ? 'right' : 'dim') : (S.wm.indexOf(k)>=0 ? 'wrong' : '');
-    return '<button class="opt '+cl+'" data-k="'+k+'"><span class="L">'+'ABCD'[k]+'</span>'+t+'</button>'; }).join('');
-  $('cgrid').innerHTML = b.c.map(function(t,k){
-    var cl = S.rc ? (k===b.ca ? 'right' : 'dim') : (S.wc.indexOf(k)>=0 ? 'wrong' : '');
-    return '<button class="opt '+cl+'" data-k="'+k+'" aria-label="'+'ABCD'[k]+' '+t+'"><span class="L">'+'ABCD'[k]+'</span><span class="ch">'+t+'</span></button>'; }).join('');
-  $('cgrid').classList.toggle('locked', !S.rm);
-  $('clueBox').innerHTML = '<b>Clue:</b> ' + b.clue; $('clueBox').classList.toggle('hidden', !S.clue || S.fact);
-  $('fChar').textContent = b.ch; $('fPy').textContent = b.py + ' · ' + b.en; $('fText').textContent = b.fact;
+  // meaning
+  $('mForm').classList.toggle('hidden', S.m);
+  $('mSolved').classList.toggle('hidden', !S.m);
+  $('mSolved').innerHTML = '✓ ' + b.en;
+  $('mTried').innerHTML = S.mt.length ? 'Tried: ' + S.mt.map(function(t){ return '<s>'+esc(t)+'</s>'; }).join(' · ') : '';
+  // character
+  $('cWrap').classList.toggle('locked', !S.m);
+  $('cForm').classList.toggle('hidden', S.c);
+  $('cSolved').classList.toggle('hidden', !S.c);
+  $('cSolved').innerHTML = '<span class="zh">' + b.ch + (b.tr ? ' ' + b.tr : '') + '</span>' + b.py + (b.tr ? '<span class="sm">simplified · traditional</span>' : '');
+  $('cTried').innerHTML = S.ct.length ? 'Tried: ' + S.ct.map(function(t){ return '<s>'+esc(t)+'</s>'; }).join(' · ') : '';
+  $('clueBox').innerHTML = '<b>Clue:</b> ' + b.clue; $('clueBox').classList.toggle('hidden', !S.clue || S.c);
+  $('fChar').textContent = b.tr || b.ch; $('fChar').textContent = b.ch; $('fPy').textContent = b.py + ' · ' + b.en; $('fText').textContent = b.fact;
   $('factBox').classList.toggle('hidden', !S.fact);
-  $('bNext').textContent = S.i === C.bones.length-1 ? 'Final bone →' : 'Next bone →';
-  drawTeams(); drawTimer();
+  $('bNext').textContent = S.i === C.bones.length-1 ? 'Final challenge →' : 'Next bone →';
+  drawBoard(); drawTimer();
 }
-$('mgrid').onclick = function(e){ var o = e.target.closest('.opt'); if (!o || S.rm) return; var k = +o.dataset.k;
-  if (k === B().ma) { S.rm = true; } else if (S.wm.indexOf(k) < 0) S.wm.push(k); draw(); };
-$('cgrid').onclick = function(e){ var o = e.target.closest('.opt'); if (!o || !S.rm || S.rc) return; var k = +o.dataset.k;
-  if (k === B().ca) { S.rc = true; stopTimer(); } else if (S.wc.indexOf(k) < 0) S.wc.push(k); draw(); };
+function shake(input){ input.classList.remove('wrong'); void input.offsetWidth; input.classList.add('wrong'); }
+$('mForm').onsubmit = function(e){ e.preventDefault(); var v = $('mIn').value.trim(); if (!v) return; var b = B();
+  if (meaningOK(v, b)) { S.m = true; draw(); bindAward($('mAward')); setTimeout(function(){ $('cIn').focus(); }, 50); }
+  else { if (S.mt.indexOf(v) < 0) S.mt.push(v); $('mIn').value = ''; shake($('mIn')); draw(); } };
+$('cForm').onsubmit = function(e){ e.preventDefault(); var v = $('cIn').value.trim(); if (!v) return; var b = B();
+  if (charOK(v, b)) { S.c = S.fact = true; stopTimer(); draw(); bindAward($('cAward')); }
+  else { if (S.ct.indexOf(v) < 0) S.ct.push(v); $('cIn').value = ''; shake($('cIn')); draw(); } };
+$('mIn').oninput = $('cIn').oninput = function(){ this.classList.remove('wrong'); };
 function act(a){
   if (a==='clue') S.clue = true;
-  if (a==='m') S.rm = true;
-  if (a==='c') { S.rm = S.rc = true; stopTimer(); }
-  if (a==='f') { S.rm = S.rc = S.fact = true; stopTimer(); }
+  if (a==='m') { S.m = true; $('mAward').classList.add('hidden'); }
+  if (a==='c') { S.m = S.c = S.fact = true; stopTimer(); $('mAward').classList.add('hidden'); $('cAward').classList.add('hidden'); }
+  if (a==='f') { S.fact = true; }
   if (a==='next') { if (S.i < CHAPTERS[S.ch].bones.length-1) return goBone(S.i+1); return openFinale(); }
   if (a==='prev') { if (S.i > 0) return goBone(S.i-1); return; }
   draw();
@@ -457,75 +447,85 @@ function act(a){
 $('bClue').onclick = function(){ act('clue'); }; $('bMeaning').onclick = function(){ act('m'); };
 $('bChar').onclick = function(){ act('c'); }; $('bFact').onclick = function(){ act('f'); };
 $('bNext').onclick = function(){ act('next'); }; $('bPrev').onclick = function(){ act('prev'); };
-
-function drawTeams(){
-  $('teams').innerHTML = TEAMS.slice(0, S.nTeams).map(function(t,k){
-    return '<div class="team"><span class="dot" style="background:'+t.color+'"></span><div style="flex:1;min-width:0"><div class="nm">'+t.name+'</div><div class="sc">'+S.scores[k]+'</div></div>'+
-      '<button class="btn minus" data-k="'+k+'" data-d="-5" aria-label="Remove 5 points">−</button><button class="btn plus" data-k="'+k+'" data-d="10" aria-label="Add 10 points">+10</button></div>';
-  }).join('') + '<div class="rules">10 pts for the meaning, 10 for the character. Keys 1–4 add 10 to a team.</div>';
-}
-$('teams').onclick = function(e){ var b = e.target.closest('button'); if (!b) return; var k = +b.dataset.k;
-  S.scores[k] = Math.max(0, S.scores[k] + (+b.dataset.d)); save(); drawTeams(); };
+$('bHome').onclick = function(){ stopTimer(); drawPlist(); show('title'); };
 
 // timer
 var tick = null;
-function drawTimer(){ $('tt').textContent = '0:' + (S.t<10?'0':'') + S.t; $('tStart').textContent = S.run ? 'Pause' : 'Start'; $('timer').classList.toggle('low', S.t <= 5); }
+function fmt(t){ return Math.floor(t/60) + ':' + (t%60<10?'0':'') + (t%60); }
+function drawTimer(){ $('tt').textContent = fmt(S.t); $('tStart').textContent = S.run ? 'Pause' : 'Start'; $('timer').classList.toggle('low', S.t <= 10); }
 function stopTimer(){ S.run = false; clearInterval(tick); tick = null; }
-function startTimer(){ if (S.t === 0) S.t = 30; S.run = true; clearInterval(tick);
+function startTimer(){ if (S.t === 0) S.t = TIME; S.run = true; clearInterval(tick);
   tick = setInterval(function(){ S.t = Math.max(0, S.t-1); if (S.t === 0) stopTimer(); drawTimer(); }, 1000); }
 $('tStart').onclick = function(){ S.run ? stopTimer() : startTimer(); drawTimer(); };
-$('tReset').onclick = function(){ stopTimer(); S.t = 30; drawTimer(); };
+$('tReset').onclick = function(){ stopTimer(); S.t = TIME; drawTimer(); };
 
-// finale
+// ---------- finale ----------
 function openFinale(){
+  stopTimer();
   var F = CHAPTERS[S.ch].finale, fb = $('finBone');
-  fb.innerHTML = ''; fb.classList.toggle('row', F.row);
+  fb.innerHTML = ''; fb.classList.toggle('row', F.type === 'combine');
   F.glyphs.forEach(function(ch, k){
-    if (F.row && k > 0) { var p = document.createElement('div'); p.className = 'op'; p.textContent = '+'; fb.appendChild(p); }
+    if (F.type === 'combine' && k > 0) { var p = document.createElement('div'); p.className = 'op'; p.textContent = '+'; fb.appendChild(p); }
     var d = document.createElement('div'); d.className = 'gl'; putGlyph(d, ch); fb.appendChild(d);
   });
   $('finKicker').textContent = F.kicker; $('finTitle').textContent = F.title;
-  $('finChars').textContent = F.chars; $('finPy').textContent = F.py; $('finEn').textContent = F.en; $('finText').textContent = F.text;
+  $('finChars').textContent = F.type === 'combine' ? F.glyphs.join(' + ') + ' = ' + F.answer : F.answer;
+  $('finPy').textContent = F.py; $('finEn').textContent = F.en; $('finText').textContent = F.text;
+  $('finForm').classList.toggle('hidden', F.type !== 'combine'); $('finIn').value = '';
+  $('finAward').classList.add('hidden');
+  var real = $('finReal'); real.classList.toggle('hidden', F.type !== 'combine'); if (F.type === 'combine') putGlyph(real, F.answer);
   $('finAnswer').classList.add('hidden'); $('finReveal').classList.remove('hidden');
   show('finale');
 }
-$('finReveal').onclick = function(){ $('finAnswer').classList.remove('hidden'); $('finReveal').classList.add('hidden'); };
+function revealFinale(){ $('finAnswer').classList.remove('hidden'); $('finReveal').classList.add('hidden'); $('finForm').classList.add('hidden'); }
+$('finReveal').onclick = revealFinale;
+$('finForm').onsubmit = function(e){ e.preventDefault(); var F = CHAPTERS[S.ch].finale, v = $('finIn').value.trim(); if (!v) return;
+  if (F.accept.some(function(a){ return v.indexOf(a) >= 0; })) { revealFinale(); bindAward($('finAward')); }
+  else { $('finIn').value = ''; shake($('finIn')); } };
 $('toEnd').onclick = function(){
-  var rows = TEAMS.slice(0, S.nTeams).map(function(t,k){ return { t:t, s:S.scores[k] }; });
-  var best = Math.max.apply(null, rows.map(function(r){ return r.s; }));
-  var winners = rows.filter(function(r){ return r.s === best; });
-  $('endTitle').innerHTML = best === 0 ? 'Well played, everyone!' : (winners.length > 1 ? 'It’s a tie!' : winners[0].t.name + ' <em>wins!</em>');
-  $('podium').innerHTML = rows.sort(function(a,b){ return b.s-a.s; }).map(function(r){
-    return '<div class="team '+(r.s===best&&best>0?'win':'')+'"><span class="dot" style="background:'+r.t.color+'"></span><div class="nm">'+r.t.name+'</div><div class="sc">'+r.s+' pts</div></div>'; }).join('');
+  var last = S.ch === CHAPTERS.length-1;
+  var rows = P.map(function(p){ return p; }).sort(function(a,b){ return b.score-a.score; });
+  var best = rows.length ? rows[0].score : 0;
+  var winners = rows.filter(function(r){ return r.score === best && best > 0; });
+  $('endKicker').textContent = last ? 'All 5 chapters complete' : 'Chapter ' + (S.ch+1) + ' complete';
+  $('endTitle').innerHTML = !winners.length ? 'Well done, detectives!' : winners.length > 1 ? 'It’s a tie at the top!' : esc(winners[0].name) + ' <em>leads!</em>';
+  $('rank').innerHTML = rows.map(function(p,k){ return '<div class="prow'+(p.score===best&&best>0?' lead':'')+'"><span class="pos">'+(k+1)+'</span><span class="nm">'+esc(p.name)+'</span><span class="sc">'+p.score+'</span></div>'; }).join('');
+  $('endNext').classList.toggle('hidden', last);
   show('end');
 };
-$('endHome').onclick = function(){ show('title'); };
+$('endHome').onclick = function(){ drawPlist(); show('title'); };
+$('endNext').onclick = function(){ openChapter(S.ch+1); };
 
-// credits (from credits.json written by the image fetcher)
+// credits
 fetch('img/credits.json').then(function(r){ return r.ok ? r.json() : {}; }).then(function(c){
   var photos = Object.keys(c).filter(function(k){ return k.indexOf('glyphs/') !== 0; }).map(function(k){
-    return '<a href="'+c[k].source+'" target="_blank" rel="noopener">'+c[k].file+'</a>'+(c[k].artist?' by '+c[k].artist:'')+' ('+c[k].license+', Wikimedia Commons)'; });
-  $('credits').innerHTML = 'Oracle bone glyphs: Wikimedia Commons, public domain (Ancient Chinese characters project, based on Richard Sears’ Chinese Etymology data).' +
-    (photos.length ? ' Photos: ' + photos.join('; ') + '.' : '');
+    return '<a href="'+c[k].source+'" target="_blank" rel="noopener">'+esc(c[k].file)+'</a>'+(c[k].artist?' by '+esc(c[k].artist):'')+' ('+esc(c[k].license)+', Wikimedia Commons)'; });
+  $('credits').innerHTML = 'Oracle bone glyphs: Wikimedia Commons, public domain (Ancient Chinese characters project, based on Richard Sears’ Chinese Etymology data).' + (photos.length ? ' Photos: ' + photos.join('; ') + '.' : '');
 }).catch(function(){});
 
-// keyboard (teacher)
+// keyboard: teacher shortcuts (ignored while typing in a box)
 document.addEventListener('keydown', function(e){
-  if (!$('game').classList.contains('on') || e.metaKey || e.ctrlKey || e.altKey) return;
+  if (e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
+  var typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
   var k = e.key.toLowerCase();
+  if ($('slides').classList.contains('on')) { if (k==='arrowright' || k===' ') { e.preventDefault(); $('sNext').click(); } if (k==='arrowleft') $('sPrev').click(); return; }
+  if (!$('game').classList.contains('on')) return;
+  if (k === 'escape' && typing) { document.activeElement.blur(); return; }
+  if (typing) return;
   if (k==='h') act('clue'); else if (k==='m') act('m'); else if (k==='c') act('c'); else if (k==='f') act('f');
   else if (k==='arrowright') act('next'); else if (k==='arrowleft') act('prev');
   else if (k==='t' || k===' ') { e.preventDefault(); S.run ? stopTimer() : startTimer(); drawTimer(); }
-  else if ('1234'.indexOf(k) >= 0 && +k <= S.nTeams) { S.scores[+k-1] += 10; save(); drawTeams(); }
 });
-// jump links: #1-3 = chapter 1, bone 3 (#1-3f also shows the fact, #2-end = chapter 2 finale)
+
+// jump links: #0 = slides, #3-2 = chapter 3 bone 2, #3-end = chapter 3 finale
 (function(){
-  var m = location.hash.match(/^#(\d)-(\d|end)(f?)$/); if (!m || !CHAPTERS[+m[1]-1]) return;
-  S.ch = +m[1]-1; $('gChapter').textContent = CHAPTERS[S.ch].title;
+  var h = location.hash;
+  if (h === '#0') return openSlides(0);
+  var m = h.match(/^#(\d)-(\d|end)$/); if (!m || !CHAPTERS[+m[1]-1]) return;
+  S.ch = +m[1]-1;
   if (m[2] === 'end') return openFinale();
-  goBone(Math.min(+m[2], CHAPTERS[S.ch].bones.length) - 1); if (m[3]) act('f'); show('game');
+  goBone(Math.min(+m[2], 6) - 1); show('game');
 })();
-$('fsBtn').onclick = function(){ if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen().catch(function(){}); };
 </script>
 </body>
 </html>
