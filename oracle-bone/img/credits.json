@@ -1,0 +1,104 @@
+{
+ "glyphs/日.svg": {
+  "file": "日-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%97%A5-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/月.svg": {
+  "file": "月-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%9C%88-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/山.svg": {
+  "file": "山-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%B1%B1-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/水.svg": {
+  "file": "水-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%B0%B4-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/雨.svg": {
+  "file": "雨-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E9%9B%A8-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/木.svg": {
+  "file": "木-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E6%9C%A8-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/今.svg": {
+  "file": "今-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E4%BB%8A-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/人.svg": {
+  "file": "人-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E4%BA%BA-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/女.svg": {
+  "file": "女-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%A5%B3-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/子.svg": {
+  "file": "子-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%AD%90-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/口.svg": {
+  "file": "口-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%8F%A3-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/目.svg": {
+  "file": "目-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E7%9B%AE-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/耳.svg": {
+  "file": "耳-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E8%80%B3-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/好.svg": {
+  "file": "好-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%A5%BD-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "glyphs/卜.svg": {
+  "file": "卜-oracle.svg",
+  "source": "https://commons.wikimedia.org/wiki/File:%E5%8D%9C-oracle.svg",
+  "license": "Public domain",
+  "artist": "Digital file creation, see the contributor names shown in the “User” column of the “File history” section below."
+ },
+ "scapula.jpg": {
+  "file": "Shang dynasty inscribed scapula.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Shang_dynasty_inscribed_scapula.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": ""
+ },
+ "plastron.jpg": {
+  "file": "Shang dynasty inscribed tortoise plastron.jpg",
+  "source": "https://commons.wikimedia.org/wiki/File:Shang_dynasty_inscribed_tortoise_plastron.jpg",
+  "license": "CC BY-SA 3.0",
+  "artist": ""
+ }
+}
