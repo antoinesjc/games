@@ -30,9 +30,21 @@ PHOTOS = {
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"User-Agent": UA})
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return r.read()
+    """GET with a polite pause and retries (Wikimedia answers 429 to fast bots)."""
+    import time
+    import urllib.error
+    for attempt in range(6):
+        time.sleep(2)
+        req = urllib.request.Request(url, headers={"User-Agent": UA})
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return r.read()
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == 5:
+                raise
+            wait = int(e.headers.get("Retry-After") or 10 * (attempt + 1))
+            print("  429, waiting %ss" % wait)
+            time.sleep(min(wait, 60))
 
 
 def info(title, width=None):
@@ -58,12 +70,17 @@ def main():
     jobs += [("%s.jpg" % key, names, 1000) for key, names in PHOTOS.items()]
     for out, names, width in jobs:
         for name in names:
-            ii = info(name, width)
-            if not ii:
+            try:
+                ii = info(name, width)
+                if not ii:
+                    continue
+                url = ii.get("thumburl") if width else ii["url"]
+                body = get(url)
+            except Exception as e:  # keep going; report at the end
+                print("ERROR   %-24s %s" % (out, e))
                 continue
-            url = ii.get("thumburl") if width else ii["url"]
             with open(os.path.join(ROOT, out), "wb") as f:
-                f.write(get(url))
+                f.write(body)
             meta = ii.get("extmetadata", {})
             credits[out] = {
                 "file": name,
